@@ -1,0 +1,12 @@
+{
+  "web_search": true,
+  "file_search": true,
+  "function": true,
+  "code_interpreter": false,
+  "image_vision": false,
+  "plugins": [],
+  "vector_store": {
+    "id": "vs_67eced3c52e48191b99937f7531e2e14",
+    "name": "Japan to Global 행사 정보"
+  }
+}

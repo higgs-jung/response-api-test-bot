@@ -1,0 +1,41 @@
+{
+  "id": "dplab-bot",
+  "name": "DP실 안내 봇",
+  "description": "지란지교패밀리 DP실 관련 문의를 처리하는 AI 어시스턴트",
+  "initial_message": "안녕하세요! 저는 지란지교패밀리 DP실 안내 봇입니다. 통근버스, 사내 식당/카페, 주차, 시설 이용 등 DP실 관련 문의를 도와드립니다. 무엇을 도와드릴까요? 🏢",
+  "model": "gpt-4o-mini",
+  "profiles": [
+    {
+      "id": "default",
+      "name": "기본 모드",
+      "description": "일반적인 DP실 안내 기능을 제공합니다.",
+      "active": true
+    }
+  ],
+  "shortcuts": [
+    {
+      "text": "통근버스 시간표 알려주세요.",
+      "description": "통근버스 노선 및 시간표 안내"
+    },
+    {
+      "text": "오늘 식당 메뉴가 궁금해요.",
+      "description": "사내 식당 메뉴 안내"
+    },
+    {
+      "text": "주차 신청은 어떻게 하나요?",
+      "description": "주차 신청 방법 안내"
+    },
+    {
+      "text": "출입문 개방 시간이 궁금합니다.",
+      "description": "출입문 개방 시간 안내"
+    },
+    {
+      "text": "케어센터는 어떻게 이용하나요?",
+      "description": "케어센터 이용 방법 안내"
+    },
+    {
+      "text": "방문객 환영 메시지 전광판 신청 방법 알려주세요.",
+      "description": "JIRAN 37 방문객 환영 메시지 안내"
+    }
+  ]
+}

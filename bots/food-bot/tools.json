@@ -1,0 +1,12 @@
+{
+  "web_search": true,
+  "file_search": true,
+  "function": true,
+  "code_interpreter": false,
+  "image_vision": false,
+  "plugins": [],
+  "vector_store": {
+    "id": "vs_67ece02387848191b196a88fb5f2e0d3",
+    "name": "맛집 데이터베이스"
+  }
+}

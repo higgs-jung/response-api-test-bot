@@ -1,0 +1,185 @@
+[
+  {
+    "name": "start_debate",
+    "description": "새로운 토론을 시작합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "토론 주제"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "토론에 참여할 역할 목록 (예: 긍정적, 회의적, 중립적)"
+        },
+        "debate_id": {
+          "type": "string",
+          "description": "토론 식별자 (선택 사항, 제공되지 않으면 자동 생성)"
+        }
+      },
+      "required": ["topic", "roles"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "get_role_response",
+    "description": "특정 역할의 AI에게 토론 맥락에 맞는 응답을 요청합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "debate_id": {
+          "type": "string",
+          "description": "토론 식별자"
+        },
+        "role": {
+          "type": "string",
+          "description": "응답을 요청할 역할 (예: 긍정적, 회의적, 중립적)"
+        },
+        "context": {
+          "type": "string",
+          "description": "현재까지의 토론 맥락 (선택 사항)"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "역할에게 제시할 질문 또는 프롬프트 (선택 사항)"
+        }
+      },
+      "required": ["debate_id", "role"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "next_turn",
+    "description": "토론의 다음 턴으로 진행합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "debate_id": {
+          "type": "string",
+          "description": "토론 식별자"
+        },
+        "current_role": {
+          "type": "string",
+          "description": "현재 발언 중인 역할"
+        },
+        "action": {
+          "type": "string",
+          "description": "다음 행동 유형 (next: 다음 역할로, question: 질문 제시, summary: 요약)"
+        }
+      },
+      "required": ["debate_id", "current_role", "action"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "add_role",
+    "description": "진행 중인 토론에 새 역할을 추가합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "debate_id": {
+          "type": "string",
+          "description": "토론 식별자"
+        },
+        "role": {
+          "type": "string",
+          "description": "추가할 역할 (예: 윤리적, 실용적, 미래지향적)"
+        },
+        "introduction": {
+          "type": "string",
+          "description": "새 역할의 소개 내용 (선택 사항)"
+        }
+      },
+      "required": ["debate_id", "role"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "summarize_debate",
+    "description": "현재까지의 토론 내용을 요약합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "debate_id": {
+          "type": "string",
+          "description": "토론 식별자"
+        },
+        "format": {
+          "type": "string",
+          "description": "요약 형식 (brief: 간략히, detailed: 상세히, points: 요점만)"
+        }
+      },
+      "required": ["debate_id"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "end_debate",
+    "description": "토론을 종료하고 최종 요약을 제공합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "debate_id": {
+          "type": "string",
+          "description": "토론 식별자"
+        },
+        "conclusion_type": {
+          "type": "string",
+          "description": "결론 유형 (consensus: 합의점 중심, perspectives: 다양한 관점 중심, open: 열린 결론)"
+        }
+      },
+      "required": ["debate_id"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "search_for_topic_info",
+    "description": "토론 주제에 관한 정보를 검색합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "검색할 주제"
+        },
+        "aspect": {
+          "type": "string",
+          "description": "주제의 특정 측면 (선택 사항)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "검색 결과 수 제한 (선택 사항)"
+        }
+      },
+      "required": ["topic"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "search_vector_store",
+    "description": "벡터 스토어에서 토론 관련 정보를 검색합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "검색 쿼리"
+        },
+        "limit": {
+          "type": "number",
+          "description": "반환할 최대 결과 수"
+        },
+        "vector_store_id": {
+          "type": "string",
+          "description": "검색할 벡터 스토어 ID"
+        }
+      },
+      "required": ["query"],
+      "additionalProperties": false
+    }
+  }
+]

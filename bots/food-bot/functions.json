@@ -1,0 +1,68 @@
+[
+  {
+    "name": "get_maps_info",
+    "description": "구글 지도에서 특정 장소에 대한 정보를 가져옵니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "place_name": {
+          "type": "string",
+          "description": "맛집/장소 이름"
+        },
+        "region": {
+          "type": "string",
+          "description": "지역 정보 (검색 정확도를 높이기 위한 선택적 파라미터)"
+        }
+      },
+      "required": ["place_name"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "get_browser_location",
+    "description": "현재 브라우저의 위치 정보를 가져옵니다",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "add_restaurant",
+    "description": "새로운 맛집 정보를 데이터베이스에 추가합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "맛집/장소 이름"
+        },
+        "region": {
+          "type": "string",
+          "description": "지역 정보 (예: 서울 강남, 부산 해운대)"
+        },
+        "description": {
+          "type": "string",
+          "description": "맛집에 대한 간단한 설명"
+        },
+        "details": {
+          "type": "string",
+          "description": "추가 상세 정보 (메뉴, 가격대, 영업시간 등)"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "맛집을 대표하는 키워드들 (예: 한식, 데이트, 회식)"
+        },
+        "vector_store_id": {
+          "type": "string",
+          "description": "저장할 벡터 스토어 ID"
+        }
+      },
+      "required": ["name", "region", "description", "vector_store_id"],
+      "additionalProperties": false
+    }
+  }
+]

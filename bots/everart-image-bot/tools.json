@@ -1,0 +1,23 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "everart_generate_image",
+      "description": "EverArt API를 사용하여 텍스트 프롬프트를 기반으로 이미지를 생성합니다."
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "everart_get_models",
+      "description": "EverArt API에서 사용 가능한 모델 목록을 조회합니다."
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "everart_get_generation",
+      "description": "EverArt API에서 생성된 이미지의 정보를 조회합니다."
+    }
+  }
+]

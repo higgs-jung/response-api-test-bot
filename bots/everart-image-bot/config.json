@@ -1,0 +1,53 @@
+{
+  "model": "gpt-4o-mini",
+  "name": "EverArt 이미지 생성 봇",
+  "description": "지란지교패밀리 스타일의 이미지를 생성하는 봇입니다. 텍스트 프롬프트를 입력하면 맞춤형 이미지를 생성합니다.",
+  "initial_message": "안녕하세요! 😊 지란지교패밀리 스타일의 이미지 생성 봇입니다.\n\n텍스트 프롬프트를 입력하시면 지란지교패밀리 스타일로 맞춤형 이미지를 생성해 드립니다.\n\n어떤 이미지를 생성하고 싶으신가요? 간단한 설명을 알려주세요!",
+  "instructions_data": {
+    "file_ids": []
+  },
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "everart_generate_image",
+        "description": "EverArt API를 사용하여 텍스트 프롬프트를 기반으로 이미지를 생성합니다."
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "everart_get_models",
+        "description": "EverArt API에서 사용 가능한 모델 목록을 조회합니다."
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "everart_get_generation",
+        "description": "EverArt API에서 생성된 이미지의 정보를 조회합니다."
+      }
+    }
+  ],
+  "tool_resources": [],
+  "temperature": 0.7,
+  "top_p": 1,
+  "vision_model": "gpt-4o-mini",
+  "vision_preview": false,
+  "supports_multiple_file_upload": false,
+  "disable_history": false,
+  "api_handlers": {
+    "everart_generate_image": {
+      "handler": "bots/everart-image-bot/handlers/image_handler.js",
+      "docs": "EverArt API를 사용하여 텍스트 프롬프트로 이미지를 생성합니다."
+    },
+    "everart_get_models": {
+      "handler": "bots/everart-image-bot/handlers/models_handler.js",
+      "docs": "EverArt API에서 사용 가능한 모델 목록을 조회합니다."
+    },
+    "everart_get_generation": {
+      "handler": "bots/everart-image-bot/handlers/generation_handler.js",
+      "docs": "EverArt API에서 생성된 이미지의 상태를 조회합니다."
+    }
+  }
+}

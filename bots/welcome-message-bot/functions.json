@@ -1,0 +1,69 @@
+[
+  {
+    "name": "generate_welcome_image",
+    "description": "환영 메시지에 맞는 이미지를 생성합니다. 이 함수는 마크다운 형식의 이미지 태그를 반환합니다. 결과의 data.markdownImage 필드를 사용하여 응답에 이미지를 표시하세요.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "이미지 생성을 위한 프롬프트 (예: '정영우 차장님을 환영합니다')"
+        },
+        "size": {
+          "type": "string",
+          "enum": ["1024x1024", "1024x1792", "1792x1024"],
+          "description": "이미지 크기 (기본값: 1792x1024, 가로형)",
+          "default": "1024x1024"
+        },
+        "style": {
+          "type": "string",
+          "enum": ["vivid", "natural"],
+          "description": "이미지 스타일 (vivid: 선명한 색상, natural: 자연스러운 색상)",
+          "default": "vivid"
+        },
+        "quality": {
+          "type": "string",
+          "enum": ["standard", "hd"],
+          "description": "이미지 품질 (standard: 표준, hd: 고화질)",
+          "default": "standard"
+        }
+      },
+      "required": ["prompt"]
+    }
+  },
+  {
+    "name": "create_welcome_message",
+    "description": "사용자가 제공한 정보를 바탕으로 개인화된 환영 메시지를 생성합니다.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "환영 메시지의 대상자 이름"
+        },
+        "organization": {
+          "type": "string",
+          "description": "소속 조직, 회사, 학교 등"
+        },
+        "title": {
+          "type": "string",
+          "description": "직함, 직책, 역할 등"
+        },
+        "style": {
+          "type": "string",
+          "enum": ["formal", "casual", "humorous", "motivational"],
+          "description": "환영 메시지의 스타일",
+          "default": "formal"
+        },
+        "occasion": {
+          "type": "string",
+          "description": "환영하는 상황 또는 맥락 (예: 새 직원 입사, 팀 합류, 행사 참가 등)",
+          "default": "입사"
+        }
+      },
+      "required": ["name", "organization"]
+    }
+  }
+]

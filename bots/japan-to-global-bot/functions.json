@@ -1,0 +1,95 @@
+[
+  {
+    "name": "register_event_participant",
+    "description": "행사 참가자를 등록합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "description": "행사 유형 (fuji 또는 pangyo)"
+        },
+        "name": {
+          "type": "string",
+          "description": "참가자 이름"
+        },
+        "company": {
+          "type": "string",
+          "description": "참가자 소속 회사"
+        },
+        "position": {
+          "type": "string",
+          "description": "참가자 직함"
+        },
+        "email": {
+          "type": "string",
+          "description": "참가자 이메일"
+        },
+        "phone": {
+          "type": "string",
+          "description": "참가자 연락처"
+        }
+      },
+      "required": ["eventType", "name", "email", "phone"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "update_event_participant",
+    "description": "기존 행사 참가자 정보를 수정합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "participantId": {
+          "type": "string",
+          "description": "수정할 참가자 ID"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "행사 유형 (fuji 또는 pangyo)"
+        },
+        "name": {
+          "type": "string",
+          "description": "참가자 이름"
+        },
+        "company": {
+          "type": "string",
+          "description": "참가자 소속 회사"
+        },
+        "position": {
+          "type": "string",
+          "description": "참가자 직함"
+        },
+        "email": {
+          "type": "string",
+          "description": "참가자 이메일"
+        },
+        "phone": {
+          "type": "string",
+          "description": "참가자 연락처"
+        }
+      },
+      "required": ["participantId"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "get_participant_status",
+    "description": "참가자의 등록 상태를 확인합니다",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "참가자 이메일"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "행사 유형 (fuji 또는 pangyo)"
+        }
+      },
+      "required": ["email", "eventType"],
+      "additionalProperties": false
+    }
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "get_current_date",
+    "description": "현재 날짜를 가져옵니다. 행사 회차를 판단하는 데 사용됩니다.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false,
+      "required": []
+    }
+  }
+]

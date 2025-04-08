@@ -1,0 +1,61 @@
+[
+  {
+    "name": "everart_generate_image",
+    "description": "EverArt API를 사용하여 텍스트 프롬프트를 기반으로 이미지를 생성합니다. 이 함수는 생성된 이미지 URL을 반환합니다.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "이미지 생성에 사용할 텍스트 프롬프트 (예: '지란지교패밀리 캐릭터')"
+        },
+        "modelId": {
+          "type": "string",
+          "description": "사용할 EverArt 모델 ID (기본값: 259826230810001408)",
+          "default": "259826230810001408"
+        },
+        "imageCount": {
+          "type": "number",
+          "description": "생성할 이미지 수 (1-10, 기본값: 1)",
+          "default": 1
+        }
+      },
+      "required": ["prompt"]
+    }
+  },
+  {
+    "name": "everart_get_models",
+    "description": "EverArt API에서 사용 가능한 모델 목록을 조회합니다.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "limit": {
+          "type": "string",
+          "description": "반환할 최대 모델 수 (기본값: 20)",
+          "default": "20"
+        },
+        "search": {
+          "type": "string",
+          "description": "모델 이름으로 검색할 키워드"
+        }
+      }
+    }
+  },
+  {
+    "name": "everart_get_generation",
+    "description": "EverArt API에서 생성된 이미지의 정보를 조회합니다.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "generationId": {
+          "type": "string",
+          "description": "조회할 생성 ID"
+        }
+      },
+      "required": ["generationId"]
+    }
+  }
+]

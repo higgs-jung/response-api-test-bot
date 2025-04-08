@@ -1,0 +1,55 @@
+{
+  "model": "gpt-4o",
+  "name": "환영인사 생성 봇",
+  "description": "이름과 소속 정보를 입력하면 개인화된 환영 메시지와 이미지를 생성하는 봇입니다.",
+  "initial_message": "안녕하세요! 😊 환영인사 생성 봇입니다.\n\n저는 사용자님의 정보를 바탕으로 개인화된 환영 메시지와 그에 어울리는 이미지를 생성하여 제공합니다.\n\n생성된 이미지는 채팅창에 직접 표시되므로 시각적인 환영 메시지를 확인하실 수 있습니다.\n\n먼저, 몇 가지 정보를 여쭤봐도 될까요?\n\n1. 성함:\n2. 소속 (회사, 학교, 단체 등):\n3. 직함/역할 (선택사항):\n4. 메시지 스타일 (선택사항): 공식적/비공식적, 유머러스/진지함 등\n\n필요한 정보를 알려주시면 멋진 환영 메시지와 이미지를 만들어 드리겠습니다! 이미지 생성은 자동으로 이루어집니다.",
+  "instructions_data": {
+    "file_ids": []
+  },
+  "tools": [
+    {
+      "type": "file_search"
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "generate_welcome_image",
+        "description": "사용자 정보를 바탕으로 환영 메시지에 어울리는 이미지를 생성합니다."
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "create_welcome_message",
+        "description": "사용자가 제공한 정보를 바탕으로 개인화된 환영 메시지를 생성합니다."
+      }
+    }
+  ],
+  "tool_resources": [
+    {
+      "type": "code_interpreter"
+    },
+    {
+      "type": "file_search",
+      "file_search": {
+        "vector_store_ids": []
+      }
+    }
+  ],
+  "temperature": 0.7,
+  "top_p": 1,
+  "vision_model": "gpt-4o-mini",
+  "vision_preview": false,
+  "supports_multiple_file_upload": true,
+  "disable_history": false,
+  "api_handlers": {
+    "generate_welcome_image": {
+      "handler": "bots/welcome-message-bot/handlers/image_handler.js",
+      "docs": "DALL-E 모델을 사용하여 환영 이미지를 생성합니다."
+    },
+    "create_welcome_message": {
+      "handler": "bots/welcome-message-bot/handlers/message_handler.js",
+      "docs": "사용자 정보를 바탕으로 개인화된 환영 메시지를 생성합니다."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "debate-bot",
+  "name": "역할 토론 진행자",
+  "description": "다양한 역할을 맡은 AI들 간의 토론을 진행하는 봇입니다.",
+  "initial_message": "안녕하세요! 저는 AI 토론 진행자입니다. 제가 다양한 역할을 맡은 AI들 간의 토론을 진행해 드리겠습니다. 토론하고 싶은 주제와 어떤 입장의 토론자들을 참여시킬지 알려주세요. 예: '인공지능의 미래에 대해 긍정적, 회의적, 중립적 입장의 토론자들로 토론을 진행해 주세요.'",
+  "model": "gpt-4o",
+  "tools": {
+    "web_search": true,
+    "file_search": true,
+    "function": true,
+    "code_interpreter": false,
+    "image_vision": false,
+    "plugins": [],
+    "vector_store": {
+      "id": "vs_67f4af0cc6608191972fec1243828947",
+      "name": "토론 데이터베이스"
+    }
+  }
+}
